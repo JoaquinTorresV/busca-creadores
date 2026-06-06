@@ -4,11 +4,10 @@
 services:
   - type: web
     name: scraper-yt-backend
-    runtime: python
+    runtime: docker
     rootDir: backend
     plan: free
-    buildCommand: pip install -r requirements.txt && playwright install --with-deps chromium
-    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    dockerfilePath: ./Dockerfile
     healthCheckPath: /health
     envVars:
       # Configura estos valores en el dashboard de Render (no los pongas aquí).
