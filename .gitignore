@@ -1,0 +1,31 @@
+# ─── Secretos / entorno ───────────────────────────────
+.env
+.env.local
+.env.*.local
+*.key
+
+# ─── Python / backend ─────────────────────────────────
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# ─── Node / Next.js (frontend) ────────────────────────
+node_modules/
+.next/
+out/
+dist/
+.vercel/
+npm-debug.log*
+yarn-error.log*
+
+# ─── Datos generados ──────────────────────────────────
+canales_youtube*.csv
+
+# ─── Sistema operativo / editor ───────────────────────
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

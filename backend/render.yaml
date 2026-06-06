@@ -1,0 +1,20 @@
+# Configuración de deploy para Render (Blueprint).
+# En el dashboard de Render: New → Blueprint → apunta al repo.
+# Root Directory del servicio: backend
+services:
+  - type: web
+    name: scraper-yt-backend
+    runtime: python
+    rootDir: backend
+    plan: free
+    buildCommand: pip install -r requirements.txt && playwright install --with-deps chromium
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      # Configura estos valores en el dashboard de Render (no los pongas aquí).
+      - key: YT_API_KEY
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
+      - key: REDIS_URL
+        sync: false
